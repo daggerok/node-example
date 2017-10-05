@@ -1,0 +1,29 @@
+= node-examples {project-name} ({project-version}) image:https://travis-ci.org/daggerok/node-examples.svg?branch=master["Build Status", link={github_url}]
+Maksim Kostromin <daggerok@gmail.com>
+{docdatetime}
+:toc:
+:revnumber: {project-version}
+:example-caption!:
+:icons: font
+:toc: left
+:numbered:
+:github_url: https://github.com/daggerok/node-examples
+:github_project_path: {github_url}/tree/master
+
+[discrete]
+== Introduction
+
+This documentation contains some help to
+link:{github_url}[examples from node-examples repository] is contains some node.js playground projects
+
+== node.js example
+include::../../01-node-example/README.adoc[tags=content]
+
+== node.js basics
+include::../../02-node-basics/README.adoc[tags=content]
+
+== links
+
+. link:http://asciidoctor.org/docs/user-manual/#builtin-attributes[asciidoctor attributes]
+
+== Enjoy! :)

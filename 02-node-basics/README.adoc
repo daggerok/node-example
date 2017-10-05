@@ -1,0 +1,12 @@
+= node-examples image:https://travis-ci.org/daggerok/node-examples.svg?branch=master["Build Status", link=https://github.com/daggerok/node-examples]
+
+//tag::content[]
+
+.build
+----
+yarn -i
+yarn build
+yarn first-app
+----
+
+//end::content[]

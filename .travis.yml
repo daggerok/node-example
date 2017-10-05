@@ -1,0 +1,43 @@
+group: edge
+dist: trusty
+
+language: node_js
+node_js:
+  - 6
+  - 7
+  - 8
+
+install: true
+before_install:
+
+  - sudo apt update
+  - sudo apt install -y python-pip curl jq libxml2-utils
+  - sudo pip install httpie
+  - npm i -g yarn npm-check-updates
+
+script:
+
+  - bash gradlew clean build
+
+  - export ROOT=$PWD
+  - >
+    for path in \
+      01-node-example \
+      02-node-basics \
+    ; do
+
+      cd "$ROOT/$path"
+      yarn -i
+      yarn build
+      ncu -u
+
+    done;
+
+cache:
+  directories:
+    - /usr/local/lib/
+    - $HOME/.cache/
+    - $HOME/.nvm/
+    - $HOME/.gradle/
+    - 01-node-example/node_modules/
+    - 02-node-basics/node_modules/

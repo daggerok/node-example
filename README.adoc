@@ -1,0 +1,10 @@
+= node-examples image:https://travis-ci.org/daggerok/node-examples.svg?branch=master["Build Status", link=https://travis-ci.org/daggerok/node-examples]
+
+This repository contains some node.js examples
+
+//. link:01-node-example[Template project]
+. link:02-node-basics[node.sj basics]
+
+links:
+
+. https://www.youtube.com/playlist?list=PL55RiY5tL51oGJorjEgl6NVeDbx_fO5jR[from here...]

@@ -1,0 +1,18 @@
+{
+  "name": "node-example",
+  "version": "0.0.1",
+  "description": "node.js example",
+  "main": "index.js",
+  "author": "daggerok",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "first-app": "cross-env PORT=3001 node ./01-first-app",
+    "build": "echo this is a build npm task"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/node": "8.0.32",
+    "cross-env": "5.0.5"
+  }
+}

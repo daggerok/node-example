@@ -1,0 +1,6 @@
+node_modules/
+.idea/
+build/
+.gradle/
+yarn.lock
+package-lock.json
