@@ -10,7 +10,8 @@
     "first-app": "cross-env PORT=3001 node ./01-first-app",
     "modules-app": "cross-env PORT=3002 node ./02-modules-app",
     "render-html-app": "cross-env PORT=3003 node ./03-render-html-app",
-    "routing-app": "cross-env PORT=3004 node ./04-routing-app",
+    "routing-pages-app": "cross-env PORT=3004 node ./04-routing-pages-app",
+    "routing-combine-app": "cross-env PORT=3005 node ./04-routing-combine-app",
     "build": "echo this is a build npm task"
   },
   "keywords": [],
