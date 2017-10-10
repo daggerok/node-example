@@ -14,8 +14,9 @@
     "routing-combine-app": "cross-env PORT=3005 node ./04-routing-combine-app",
     "generate-express-app": "express 06-express",
     "express-app": "cross-env PORT=3006 node ./06-express/bin/www",
-    "express-handlebars-app": "cross-env PORT=3007 node ./07-express-handlebars/bin/www",
-    "express-get-and-post-app": "cross-env PORT=3008 nodemon ./08-express-get-and-post/bin/www -w ./08-express-get-and-post/ -i ./08-express-get-and-post/mode_modules",
+    "handlebars-app": "cross-env PORT=3007 node ./07-express-handlebars/bin/www",
+    "get-and-post-app": "cross-env PORT=3008 nodemon ./08-express-get-and-post/bin/www -w ./08-express-get-and-post/ -i ./08-express-get-and-post/mode_modules",
+    "sessions-and-validation-app": "cross-env PORT=3009 nodemon ./09-sessions-and-validation/bin/www -w ./09-sessions-and-validation",
     "build": "echo this is a build npm task"
   },
   "keywords": [],
