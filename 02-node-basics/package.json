@@ -14,6 +14,7 @@
     "routing-combine-app": "cross-env PORT=3005 node ./04-routing-combine-app",
     "generate-express-app": "express 06-express",
     "express-app": "cross-env PORT=3006 node ./06-express/bin/www",
+    "express-handlebars-app": "cross-env PORT=3007 node ./07-express-handlebars/bin/www",
     "build": "echo this is a build npm task"
   },
   "keywords": [],
