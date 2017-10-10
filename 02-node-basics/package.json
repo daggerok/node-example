@@ -15,12 +15,14 @@
     "generate-express-app": "express 06-express",
     "express-app": "cross-env PORT=3006 node ./06-express/bin/www",
     "express-handlebars-app": "cross-env PORT=3007 node ./07-express-handlebars/bin/www",
+    "express-get-and-post-app": "cross-env PORT=3008 nodemon ./08-express-get-and-post/bin/www -w ./08-express-get-and-post/ -i ./08-express-get-and-post/mode_modules",
     "build": "echo this is a build npm task"
   },
   "keywords": [],
   "devDependencies": {
     "cross-env": "5.0.5",
     "express-generator": "4.15.5",
+    "nodemon": "1.12.1",
     "npm-check-updates": "2.13.0"
   }
 }
