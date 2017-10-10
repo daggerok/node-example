@@ -25,8 +25,19 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const expressValidator = require('express-validator');
+app.use(expressValidator());
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const expressSession = require('express-session');
+app.use(expressSession({ // do not use that in production (in memory storage)
+    secret: 'sensitive', // this is a business value
+    saveUninitialized: false, // session should be initialized
+    resave: false, // do not save session after each request
+}));
 
 app.use('/', index);
 app.use('/users', users);

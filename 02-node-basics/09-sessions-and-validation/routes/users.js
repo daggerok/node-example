@@ -9,6 +9,8 @@ router.get('/', (req, res, next) => {
     title: 'List of users',
     links,
     users,
+    success: req.session.success,
+    errors: req.session.errors,
   });
 });
 
@@ -17,7 +19,10 @@ router.get('/new', (req, res, next) => {
   res.render('users/new', {
     title: 'Create new user',
     links,
+    success: req.session.success,
+    errors: req.session.errors,
   });
+  req.session.errors = null;
 });
 
 /* GET: user info. */
@@ -33,10 +38,29 @@ router.get('/:username', (req, res, next) => {
 
 /* POST: create new user. */
 router.post('/new/create', (req, res, next) => {
-  const username = req.body.username;
-  const email = req.body.email;
-  if (username && email) users[username] = { username, email };
-  res.redirect('/users/');
+  req.check('username', 'Username is empty').notEmpty();
+  req.check('username', 'Username is too short').isLength({ min: 3, });
+  req.check('email', 'Email is empty').notEmpty();
+  req.check('email', 'Email is invalid').isEmail();
+  const errors = req.validationErrors();
+  console.log('errors', errors);
+  console.log('errors.length', errors.length);
+  console.log('!!errors', !!errors);
+  req.session.success = !!errors;
+  console.log(req.session);
+  console.log(req.body);
+  if (!!errors) {
+    req.session.errors = errors;
+    res.redirect('/users/new/');
+  } else {
+    const username = req.body.username;
+    const email = req.body.email;
+    users[username] = {
+      username,
+      email,
+    };
+    res.redirect('/users/');
+  }
 });
 
 module.exports = {
