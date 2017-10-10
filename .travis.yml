@@ -15,7 +15,7 @@ node_js:
   - 8
   - node
   - iojs
-  - lts
+  - lts/*
 
 install: true
 before_install:
