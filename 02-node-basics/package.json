@@ -12,10 +12,14 @@
     "render-html-app": "cross-env PORT=3003 node ./03-render-html-app",
     "routing-pages-app": "cross-env PORT=3004 node ./04-routing-pages-app",
     "routing-combine-app": "cross-env PORT=3005 node ./04-routing-combine-app",
+    "generate-express-app": "express 06-express",
+    "express-app": "cross-env PORT=3006 node ./06-express/bin/www",
     "build": "echo this is a build npm task"
   },
   "keywords": [],
   "devDependencies": {
-    "cross-env": "5.0.5"
+    "cross-env": "5.0.5",
+    "express-generator": "4.15.5",
+    "npm-check-updates": "2.13.0"
   }
 }
