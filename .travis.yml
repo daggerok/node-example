@@ -22,6 +22,7 @@ script:
   - export ROOT=$PWD
   - >
     for path in \
+      00-node-express-coffee \
       01-node-example \
       02-node-basics \
     ; do

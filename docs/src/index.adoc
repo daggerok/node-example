@@ -22,6 +22,9 @@ include::../../01-node-example/README.adoc[tags=content]
 == node.js basics
 include::../../02-node-basics/README.adoc[tags=content]
 
+== node.js express coffee-script
+include::../../00-node-express-coffee/README.adoc[tags=content]
+
 == links
 
 . link:http://asciidoctor.org/docs/user-manual/#builtin-attributes[asciidoctor attributes]
