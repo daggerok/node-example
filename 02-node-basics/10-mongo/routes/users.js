@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const mongodb = require('mongodb');
-const assert = require('assert');
 
 const props = {
     port: process.env.MONGODB_PORT || 27017,
@@ -48,7 +47,6 @@ const mongo = {
 };
 
 const links = require('./index').links;
-const users = {};
 
 const validate = {
     user: req => {
@@ -115,5 +113,4 @@ router.post('/new/create', (req, res, next) => {
 
 module.exports = {
     router,
-    users,
 };

@@ -57,6 +57,11 @@ yarn sessions-and-validation-app
 ----
 cd 10-mongo-app
 yarn start
+
+open http://localhost:3010/
+
+# ctrl+c
+yarn stop
 ----
 
 //end::content[]
