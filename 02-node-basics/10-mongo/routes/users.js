@@ -58,7 +58,7 @@ const validate = {
 };
 
 /* GET: users listing. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res, _next) => {
     mongo.findAll(users => {
         res.render('users/list', {
             title: 'List of users',
@@ -71,7 +71,7 @@ router.get('/', (req, res, next) => {
 });
 
 /* GET: create new user. */
-router.get('/new', (req, res, next) => {
+router.get('/new', (req, res, _next) => {
     res.render('users/new', {
         title: 'Create new user',
         links,
@@ -82,7 +82,7 @@ router.get('/new', (req, res, next) => {
 });
 
 /* GET: user info. */
-router.get('/:username', (req, res, next) => {
+router.get('/:username', (req, res, _next) => {
     const username = req.params.username;
     mongo.findOne(username, user => {
         res.render('users/info', {
@@ -94,7 +94,7 @@ router.get('/:username', (req, res, next) => {
 });
 
 /* POST: create new user. */
-router.post('/new/create', (req, res, next) => {
+router.post('/new/create', (req, res, _next) => {
     validate.user(req);
     const errors = req.validationErrors();
     req.session.success = !!errors;
