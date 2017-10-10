@@ -1,11 +1,21 @@
 group: edge
 dist: trusty
 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 language: node_js
 node_js:
-  - 6
-  - 7
-  - 8
+  - lts/6
+  - lts/7
+  - lts/8
+  - node
+  - iojs
+  - lts
 
 install: true
 before_install:
@@ -35,6 +45,8 @@ script:
     done;
 
 cache:
+  npm: true
+  yarn: true
   directories:
     - /usr/local/lib/
     - $HOME/.cache/
