@@ -45,4 +45,6 @@ gitPublish {
 build.dependsOn asciidoctor
 gitPublishPush.dependsOn build
 gitPublishPush.shouldRunAfter clean, build
-task deploy(dependsOn: [gitPublishPush])
+task deploy(dependsOn: [gitPublishPush]) {
+  shouldRunAfter build
+}
