@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const mongodb = require('mongodb');
+const MongoClient = require('mongodb').MongoClient;
 
 const props = {
     port: process.env.MONGODB_PORT || 27017,
@@ -18,7 +18,7 @@ const onClose = (db, cb) => {
 
 const mongo = {
     findAll: cb => {
-        mongodb.connect(props.url, (err, db) => {
+        MongoClient.connect(props.url, (err, db) => {
             const cursor = db.collection(props.collection).find();
             const users = [];
             const iterator = (doc, _err) => {
@@ -30,7 +30,7 @@ const mongo = {
         });
     },
     findOne: (username, cb) => {
-        mongodb.connect(props.url, (_err, db) => {
+        MongoClient.connect(props.url, (_err, db) => {
             const querySelector = { username };
             db.collection(props.collection).findOne(querySelector, (_err, user) => {
                 onClose(db, () => cb(user));
@@ -38,7 +38,7 @@ const mongo = {
         })
     },
     save: (user, cb) => {
-        mongodb.connect(props.url, (_err, db) => {
+        MongoClient.connect(props.url, (_err, db) => {
             db.collection(props.collection).insertOne(user, () => {
                 onClose(db, cb);
             });
