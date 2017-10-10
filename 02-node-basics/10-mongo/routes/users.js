@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 
-const props = {
+const mongodb = {
     port: process.env.MONGODB_PORT || 27017,
     host: process.env.MONGODB_HOST || '127.0.0.1',
     name: process.env.MONGODB_NAME || 'db',
     collection: 'users',
 };
-props.url = process.env.MONGODB_URL || `mongodb://${props.host}:${props.port}/${props.name}`;
-console.info('application will use next mongodb connection string:', props.url);
+mongodb.url = process.env.MONGODB_URL || `mongodb://${mongodb.host}:${mongodb.port}/${mongodb.name}`;
+console.info('application will use next mongodb connection string:', mongodb.url);
 
 const onClose = (db, cb) => {
     db.close(true, () => console.log('connection force closed'));
@@ -18,8 +18,8 @@ const onClose = (db, cb) => {
 
 const mongo = {
     findAll: cb => {
-        MongoClient.connect(props.url, (err, db) => {
-            const cursor = db.collection(props.collection).find();
+        MongoClient.connect(mongodb.url, (err, db) => {
+            const cursor = db.collection(mongodb.collection).find();
             const users = [];
             const iterator = (doc, _err) => {
                 users.push(doc);
@@ -30,16 +30,16 @@ const mongo = {
         });
     },
     findOne: (username, cb) => {
-        MongoClient.connect(props.url, (_err, db) => {
+        MongoClient.connect(mongodb.url, (_err, db) => {
             const querySelector = { username };
-            db.collection(props.collection).findOne(querySelector, (_err, user) => {
+            db.collection(mongodb.collection).findOne(querySelector, (_err, user) => {
                 onClose(db, () => cb(user));
             });
         })
     },
     save: (user, cb) => {
-        MongoClient.connect(props.url, (_err, db) => {
-            db.collection(props.collection).insertOne(user, () => {
+        MongoClient.connect(mongodb.url, (_err, db) => {
+            db.collection(mongodb.collection).insertOne(user, () => {
                 onClose(db, cb);
             });
         });
