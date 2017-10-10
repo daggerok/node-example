@@ -6,7 +6,57 @@
 ----
 yarn -i
 yarn build
+----
+
+.01-first-app
+----
 yarn first-app
+----
+
+.02-modules-app
+----
+yarn modules-app
+----
+
+.03-render-html-app
+----
+yarn render-html-app
+----
+
+.04-routing-pages-app
+----
+yarn routing-pages-app
+----
+
+.05-routing-combine-app
+----
+yarn routing-combine-app
+----
+
+.06-express
+----
+yarn express-app
+----
+
+.07-express-handlebars
+----
+yarn express-handlebars-app
+----
+
+.08-express-get-and-post
+----
+yarn express-get-and-post-app
+----
+
+.09-sessions-and-validation
+----
+yarn sessions-and-validation-app
+----
+
+.10-mongo
+----
+cd 10-mongo-app
+yarn start
 ----
 
 //end::content[]

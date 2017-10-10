@@ -1,0 +1,11 @@
+<h1>{{ title }}</h1>
+{{#if users}}
+    {{# each users}}
+        <p>
+            <a class="text-decoration-none"
+               href="/users/{{username}}">{{username}} &lt;{{email}}&gt;</a>
+        </p>
+    {{/each}}
+{{else}}
+    <p>You can create new user <a href="/users/new">here</a></p>
+{{/if}}

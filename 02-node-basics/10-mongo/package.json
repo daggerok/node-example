@@ -1,0 +1,31 @@
+{
+  "name": "07-express-handlebars",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "mongo": "docker-compose up -d",
+    "prestart": "yarn -i && yarn mongo",
+    "start": "cross-env PORT=3010 nodemon ./bin/www",
+    "stop": "docker-compose down -v"
+  },
+  "dependencies": {
+    "assert": "1.4.1",
+    "body-parser": "1.18.2",
+    "cookie-parser": "1.4.3",
+    "debug": "3.1.0",
+    "express": "4.16.1",
+    "express-handlebars": "3.0.0",
+    "express-session": "1.15.6",
+    "express-validator": "4.2.1",
+    "mongodb": "2.2.31",
+    "morgan": "1.9.0",
+    "serve-favicon": "2.4.5"
+  },
+  "devDependencies": {
+    "@types/mongodb": "2.2.13",
+    "@types/node": "8.0.34",
+    "cross-env": "5.0.5",
+    "nodemon": "1.12.1",
+    "npm-run-all": "4.1.1"
+  }
+}
