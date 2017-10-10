@@ -10,9 +10,9 @@ addons:
 
 language: node_js
 node_js:
-  - lts/6
-  - lts/7
-  - lts/8
+  - 6
+  - 7
+  - 8
   - node
   - iojs
   - lts
