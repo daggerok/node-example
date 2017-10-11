@@ -1,0 +1,7 @@
+<h1>{{title}}</h1>
+{{#if user}}
+    <div>username: <label>{{ user.username }}</label></div>
+    <div>email: <label>{{ user.email }}</label></div>
+{{else}}
+    <p>user wasn't found.</p>
+{{/if}}
