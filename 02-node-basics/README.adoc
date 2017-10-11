@@ -53,7 +53,7 @@ yarn express-get-and-post-app
 yarn sessions-and-validation-app
 ----
 
-.10-mongo
+.10-mongo - plain mongodb driver api
 ----
 cd 10-mongo
 yarn start
@@ -64,12 +64,23 @@ open http://localhost:3010/
 yarn stop
 ----
 
-.11-monk
+.11-monk - easiest mongodb driver
 ----
 cd 11-monk
 yarn start
 
 open http://localhost:3011/
+
+# ctrl+c
+yarn stop
+----
+
+.12-mongoose - mongodb ORM with schema
+----
+cd 12-mongoose
+yarn start
+
+open http://localhost:3012/
 
 # ctrl+c
 yarn stop
