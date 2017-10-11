@@ -1,13 +1,14 @@
 version: "2.1"
+
 services:
+
   mongo:
     restart: unless-stopped
     image: healthcheck/mongo:latest
-    environment:
-      MONGO_PORT_27017_TCP_PORT: 27017
     ports: ["27017:27017"]
     volumes: ["mongo-data:/data/db"]
     networks: [backing-services]
+
   mongo-express:
     restart: unless-stopped
     depends_on:
@@ -19,9 +20,13 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: admin
     ports: ["8081:8081"]
+    volumes: ["mongo-express-data:/node_modules/mongo-express"]
     networks: [backing-services]
+
 volumes:
   mongo-data: {}
+  mongo-express-data: {}
+
 networks:
   backing-services:
     driver: bridge
