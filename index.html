@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="Maksim Kostromin">
-<title>streaming-file-server docs (3.0.0)</title>
+<title>node-examples docs (0.0.1)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -516,12 +516,12 @@ table.CodeRay td.code>pre{padding:0}
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
 <div>
-    <img src="https://travis-ci.org/daggerok/streaming-file-server.svg"
+    <img src="https://travis-ci.org/daggerok/node-examples.svg"
          style="position: fixed;bottom:0; right:0;">
-    <a href="https://github.com/daggerok/streaming-file-server">
+    <a href="https://github.com/daggerok/node-examples">
         <img style="position: absolute; top: 0; right: 0; border: 0;"
              src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
-             alt="Fork me if u want :)">
+             alt="Do not fork me! :)">
     </a>
 </div>
 
@@ -533,24 +533,21 @@ table.CodeRay td.code>pre{padding:0}
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>streaming-file-server docs (3.0.0) <span class="image"><a class="image" href="https://github.com/daggerok/streaming-file-server"><img src="https://travis-ci.org/daggerok/streaming-file-server.svg?branch=master" alt="Build Status"></a></span></h1>
+<h1>node-examples docs (0.0.1) <span class="image"><a class="image" href="https://github.com/daggerok/node-examples"><img src="https://travis-ci.org/daggerok/node-examples.svg?branch=master" alt="Build Status"></a></span></h1>
 <div class="details">
 <span id="author" class="author">Maksim Kostromin</span><br>
 <span id="email" class="email"><a href="mailto:daggerok@gmail.com">daggerok@gmail.com</a></span><br>
-<span id="revnumber">version 3.0.0,</span>
-<span id="revdate">2017-10-15 14:48:36 EEST</span>
+<span id="revnumber">version 0.0.1,</span>
+<span id="revdate">2017-10-15 15:18:43 EEST</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#installation">1. Installation</a>
-<ul class="sectlevel2">
-<li><a href="#postgres-database">1.1. postgres database</a></li>
-<li><a href="#in-memory-h2-database">1.2. in-memory h2 database</a></li>
-<li><a href="#take-advantages-of-spring-boot-executable-jar">1.3. take advantages of spring-boot executable jar</a></li>
-<li><a href="#simplicity-bootstrap-with-automation-shell-script">1.4. simplicity bootstrap with automation shell-script</a></li>
-</ul>
-</li>
+<li><a href="#node-js-example">1. node.js example</a></li>
+<li><a href="#node-js-basics">2. node.js basics</a></li>
+<li><a href="#node-js-express-coffee-script">3. node.js express coffee-script</a></li>
+<li><a href="#links">4. links</a></li>
+<li><a href="#enjoy">5. Enjoy! :)</a></li>
 </ul>
 </div>
 </div>
@@ -559,155 +556,156 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sectionbody">
 <h2 id="introduction" class="discrete">Introduction</h2>
 <div class="paragraph">
-<p><a href="https://github.com/daggerok/streaming-file-server">Streaming file server</a>&#8201;&#8212;&#8201;java based project on top of spring-boot.
-This is a simple file-server which is allowed upload and download files with no memory limitation.
-It uses file multipart protocol</p>
+<p>This documentation contains some help to
+<a href="https://github.com/daggerok/node-examples">examples from node-examples repository</a> is contains some node.js playground projects</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="installation">1. Installation</h2>
+<h2 id="node-js-example">1. node.js example</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="postgres-database">1.1. postgres database</h3>
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="node-js-basics">2. node.js basics</h2>
+<div class="sectionbody">
 <div class="listingblock">
-<div class="title">install using postgres in docker</div>
+<div class="title">build</div>
 <div class="content">
-<pre># docker compose file for postgres database
-docker-compose up -d
-
-# file-items data service
-java -jar file-items-service.jar
-
-# file server
-java -jar file-server.jar --app.upload.path=./path/to/file-storage
-
-# cleanup
-docker-compose down -v</pre>
+<pre>yarn -i
+yarn build</pre>
 </div>
-</div>
-<div class="paragraph">
-<p>get <a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/docker-compose.yml">docker-compose.yml</a>,
-<a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/file-items-service-3.0.0.jar">file-items-service.jar</a>,
-<a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/file-server-3.0.0.jar">file-server.jar</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="in-memory-h2-database">1.2. in-memory h2 database</h3>
-<div class="listingblock">
-<div class="title">if you do not have docker&#8201;&#8212;&#8201;feel free to use h2 in memory database</div>
-<div class="content">
-<pre>ava file-items-service.jar --spring.profiles.active=db-h2</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>get <a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/file-items-service-3.0.0.jar">file-items-service.jar</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="take-advantages-of-spring-boot-executable-jar">1.3. take advantages of spring-boot executable jar</h3>
-<div class="listingblock">
-<div class="title">if you are using bash&#8201;&#8212;&#8201;run even simply</div>
-<div class="content">
-<pre>bash file-items-service.jar --spring.profiles.active=db-h2
-bash file-server.jar --app.upload.path=./path/to/file-storage</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>get <a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/file-items-service-3.0.0.jar">file-items-service-3.0.0.jar</a> and
-<a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/file-server-3.0.0.jar">file-server-3.0.0.jar</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="simplicity-bootstrap-with-automation-shell-script">1.4. simplicity bootstrap with automation shell-script</h3>
-<div class="sect3">
-<h4 id="unix-bash">1.4.1. unix (bash)</h4>
-<div class="listingblock">
-<div class="title">postgres in docker</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash"># start
-bash application.bash start ./path/to/file-storage
-
-# stop
-bash application.bash stop
-
-# cleanup
-bash application.bash clean ./path/to/file-storage</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>get <a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/application.bash">application.bash</a></p>
 </div>
 <div class="listingblock">
-<div class="title">h2 in-memory database</div>
+<div class="title">01-first-app</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash"># start
-bash application-h2.bash start ./path/to/file-storage
-
-# stop
-bash application-h2.bash stop
-
-# cleanup
-bash application-h2.bash clean ./path/to/file-storage</code></pre>
+<pre>yarn first-app</pre>
 </div>
-</div>
-<div class="paragraph">
-<p>get <a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/application-h2.bash">application-h2.bash</a></p>
-</div>
-<div class="paragraph">
-<p><em>note: binaries <code>wget</code>, <code>docker-compose</code> and of course jre (binaries: <code>java</code> and <code>jps</code>) are required</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="windows-batch-cmd">1.4.2. windows (batch cmd)</h4>
-<div class="listingblock">
-<div class="title">postgres in docker</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="cmd">@rem start
-application.cmd start path\to\file-storage
-
-@rem stop
-application.cmd stop
-
-@rem cleanup
-application.cmd clean path\to\file-storage</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>get <a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/application.cmd">application.cmd</a></p>
 </div>
 <div class="listingblock">
-<div class="title">h2 in-memory database</div>
+<div class="title">02-modules-app</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">@rem start
-application-h2.cmd start path\to\file-storage
+<pre>yarn modules-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">03-render-html-app</div>
+<div class="content">
+<pre>yarn render-html-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">04-routing-pages-app</div>
+<div class="content">
+<pre>yarn routing-pages-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">05-routing-combine-app</div>
+<div class="content">
+<pre>yarn routing-combine-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">06-express</div>
+<div class="content">
+<pre>yarn express-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">07-express-handlebars</div>
+<div class="content">
+<pre>yarn express-handlebars-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">08-express-get-and-post</div>
+<div class="content">
+<pre>yarn express-get-and-post-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">09-sessions-and-validation</div>
+<div class="content">
+<pre>yarn sessions-and-validation-app</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">10-mongo - plain mongodb driver api</div>
+<div class="content">
+<pre>cd 10-mongo
+yarn start
 
-@rem stop
-application-h2.cmd stop
+open http://localhost:3010/
 
-@rem cleanup
-application-h2.cmd clean path\to\file-storage</code></pre>
+# ctrl+c
+yarn stop</pre>
 </div>
 </div>
+<div class="listingblock">
+<div class="title">11-monk - easiest mongodb driver</div>
+<div class="content">
+<pre>cd 11-monk
+yarn start
+
+open http://localhost:3011/
+
+# ctrl+c
+yarn stop</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">12-mongoose - mongodb ORM with schema</div>
+<div class="content">
+<pre>cd 12-mongoose
+yarn start
+
+open http://localhost:3012/
+
+# ctrl+c
+yarn stop</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="node-js-express-coffee-script">3. node.js express coffee-script</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>get <a href="https://github.com/daggerok/streaming-file-server/releases/download/3.0.0/application-h2.cmd">application-h2.cmd</a></p>
+<p>coffee express.js example</p>
 </div>
-<div class="paragraph">
-<p><em>note: binaries <code>wget</code>, <code>docker-compose</code> and of course jre (binaries: <code>java</code> and <code>jps</code>) are required</em></p>
-</div>
-<hr>
-<div class="paragraph">
-<p>Enjoy :)</p>
+<div class="listingblock">
+<div class="content">
+<pre>yarn start
+open http://localhost:3000</pre>
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="links">4. links</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="http://asciidoctor.org/docs/user-manual/#builtin-attributes">asciidoctor attributes</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enjoy">5. Enjoy! :)</h2>
+<div class="sectionbody">
+
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 3.0.0<br>
-Last updated 2017-10-15 14:48:36 EEST
+Version 0.0.1<br>
+Last updated 2017-10-15 15:18:43 EEST
 </div>
 </div>
 </body>
