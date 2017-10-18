@@ -1,0 +1,21 @@
+{
+  "name": "cqrs-example",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'yarn -t; npm-run-all -p start:*'",
+    "disale:start": "express --hbs frontend",
+    "compose": "docker-compose -f ./docker/docker-compose.yml",
+    "stop": "npm run compose -- down -v",
+    "disable.prestart": "npm i; npm run compose -- up -d --build",
+    "start": "npm-run-all -p start:*",
+    "start:frontend": "cross-env PORT=8001 nodemon ./frontend/bin/www",
+    "start:backend": "cross-env PORT=8002 nodemon ./backend/sse-server.js"
+  },
+  "devDependencies": {
+    "express-generator": "4.15.5",
+    "cross-env": "5.1.0",
+    "nodemon": "1.12.1",
+    "npm-run-all": "4.1.1"
+  }
+}

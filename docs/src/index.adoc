@@ -16,14 +16,14 @@ Maksim Kostromin <daggerok@gmail.com>
 This documentation contains some help to
 link:{github_url}[examples from node-examples repository] is contains some node.js playground projects
 
-== node.js example
-include::../../01-node-example/README.adoc[tags=content]
+== node.js express coffee-script
+include::../../node-express-coffee/README.adoc[tags=content]
 
 == node.js basics
-include::../../02-node-basics/README.adoc[tags=content]
+include::../../node-basics/README.adoc[tags=content]
 
-== node.js express coffee-script
-include::../../00-node-express-coffee/README.adoc[tags=content]
+== cqrs example
+include::../../cqrs-example/README.adoc[tags=content]
 
 == links
 

@@ -25,5 +25,12 @@
     "express-generator": "4.15.5",
     "nodemon": "1.12.1",
     "npm-check-updates": "2.13.0"
+  },
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "cookie-parser": "1.4.3",
+    "express": "4.16.2",
+    "express-sse": "0.4.1",
+    "morgan": "1.9.0"
   }
 }

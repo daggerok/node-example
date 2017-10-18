@@ -1,5 +1,0 @@
-= node-examples image:https://travis-ci.org/daggerok/node-examples.svg?branch=master["Build Status", link=https://github.com/daggerok/node-examples]
-
-//tag::content[]
-
-//end::content[]

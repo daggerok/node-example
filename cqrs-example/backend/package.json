@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'yarn start; node ./sse-server.js'",
+    "prestart": "npm i",
+    "start": "node ./sse-server.js"
+  },
+  "dependencies": {
+    "@types/event-stream": "3.3.32",
+    "body-parser": "1.18.2",
+    "cookie-parser": "1.4.3",
+    "express": "4.16.2",
+    "express-sse": "0.4.1",
+    "morgan": "1.9.0",
+    "servicebus": "2.0.10",
+    "sse": "0.0.6",
+    "uuid": "3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "8.0.44"
+  }
+}

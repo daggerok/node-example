@@ -31,9 +31,9 @@ script:
   - export ROOT=$PWD
   - >
     for path in \
-      00-node-express-coffee \
-      01-node-example \
-      02-node-basics \
+      node-express-coffee \
+      node-basics \
+      cqrs-example \
     ; do
 
       cd "$ROOT/$path"
@@ -52,4 +52,4 @@ cache:
     - $HOME/.nvm/
     - $HOME/.gradle/
     - 01-node-example/node_modules/
-    - 02-node-basics/node_modules/
+    - node-basics/node_modules/

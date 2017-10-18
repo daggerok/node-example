@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'yarn start; node ./bin/www'",
+    "prestart": "npm i",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "@types/event-stream": "3.3.32",
+    "body-parser": "1.18.2",
+    "cookie-parser": "1.4.3",
+    "debug": "2.6.9",
+    "express": "4.15.5",
+    "hbs": "4.0.1",
+    "morgan": "1.9.0",
+    "serve-favicon": "2.4.5",
+    "servicebus": "2.0.10",
+    "uuid": "3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "8.0.44",
+    "@types/whatwg-fetch": "0.0.33"
+  }
+}

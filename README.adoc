@@ -2,9 +2,9 @@
 
 This repository contains some node.js examples
 
-. link:00-node-express-coffee[node.js coffee-script express]
-//. link:01-node-example[Template project]
-. link:02-node-basics[node.js basics]
+. link:node-express-coffee[node.js coffee-script express]
+. link:node-basics[node.js basics]
+. link:cars-example[Template project]
 
 links:
 
