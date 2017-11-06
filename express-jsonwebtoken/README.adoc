@@ -1,11 +1,36 @@
 = node-examples image:https://travis-ci.org/daggerok/node-examples.svg?branch=master["Build Status", link=https://travis-ci.org/daggerok/node-examples]
 
-This repository contains some node.js examples
+.
+----
+http get :3000/health
 
-. link:node-express-coffee[node.js coffee-script express]
-. link:node-basics[node.js basics]
-. link:cars-example[Template project]
+http get :3000
+http post :3000
+# 401
 
-links:
+http post :3000/login username:max password:top-secret                                                          00:39:16
+HTTP/1.1 200 OK
 
-. https://www.youtube.com/playlist?list=PL55RiY5tL51oGJorjEgl6NVeDbx_fO5jR[from here...]
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoibWF4IiwicGFzc3dvcmQiOiJ0b3Atc2VjcmV0In0sImlhdCI6MTUxMDAwNzk2Mn0._yMPTS-TlvMA4l2_CcZGu35PDPlufNFnsR13aQDFtEQ",
+    "publicUser": {
+        "password": "**",
+        "username": "max"
+    }
+}
+
+export access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoibWF4IiwicGFzc3dvcmQiOiJ0b3Atc2VjcmV0In0sImlhdCI6MTUxMDAwNzk2Mn0._yMPTS-TlvMA4l2_CcZGu35PDPlufNFnsR13aQDFtEQ
+http post :3000 authorization:"Bearer $access_token"                                                            00:41:33
+HTTP/1.1 200 OK
+
+{
+    "data": {
+        "iat": 1510007962,
+        "user": {
+            "password": "top-secret",
+            "username": "max"
+        }
+    },
+    "message": "secured REST API"
+}
+----
