@@ -5,7 +5,6 @@ This repository contains some node.js examples
 . link:node-express-coffee[node.js coffee-script express]
 . link:node-basics[node.js basics]
 . link:cars-example[Template project]
-. link:express-jsonwebtoken[Secured REST API (Express + JWT)]
 
 links:
 
